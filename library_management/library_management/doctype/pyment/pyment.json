@@ -1,14 +1,15 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "PY.#####",
  "creation": "2024-09-04 09:51:52.963925",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "amended_from",
   "library_member",
-  "amount",
-  "methed",
-  "amended_from"
+  "payment_amount",
+  "methed"
  ],
  "fields": [
   {
@@ -18,15 +19,10 @@
    "options": "Library Member"
   },
   {
-   "fieldname": "amount",
-   "fieldtype": "Currency",
-   "label": "amount"
-  },
-  {
    "fieldname": "methed",
    "fieldtype": "Select",
-   "label": "methed",
-   "options": "caerd\nbank\ncash"
+   "label": "Payment Method",
+   "options": "Cash\nCard\nBank"
   },
   {
    "fieldname": "amended_from",
@@ -37,15 +33,21 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "payment_amount",
+   "fieldtype": "Currency",
+   "label": "Payment Amount"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-04 09:57:17.470038",
+ "modified": "2024-09-04 12:18:29.572304",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Pyment",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {

@@ -10,5 +10,6 @@ frappe.ui.form.on('Library Member', {
                 library_member: frm.doc.name
             })
         })
-    }
+    },
+    
 });

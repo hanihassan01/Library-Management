@@ -1,8 +1,6 @@
-import datetime
 import frappe
+from frappe.utils import getdate
 from frappe.model.document import Document
-from frappe.model.docstatus import DocStatus
-from datetime import datetime
 
 class LibraryTransaction(Document):
     def before_submit(self):
@@ -13,7 +11,7 @@ class LibraryTransaction(Document):
         elif self.type == "Return":
             self.validate_return()
             self.return_article()
-            self.clear_library_member_issue()
+            self.handle_return()
 
     def validate_issue(self):
         self.validate_membership()
@@ -55,12 +53,18 @@ class LibraryTransaction(Document):
         
         # Check if the 'issued_article' child table exists
         if hasattr(library_member, 'issued_article'):
-            # Append a new entry to the 'issued_article' table
-            library_member.append("issued_article", {
-                "issued_article": self.article,
-                "issued_date": self.date
-            })
-            library_member.save()
+            # Check if the article is already issued to this member
+            existing_entry = next((entry for entry in library_member.issued_article if entry.issued_article == self.article), None)
+            
+            if not existing_entry:
+                # Append a new entry to the 'issued_article' table
+                library_member.append("issued_article", {
+                    "issued_article": self.article,
+                    "issued_date": self.date
+                })
+                library_member.save()
+            else:
+                frappe.throw(f"Article '{self.article}' is already issued to this member.")
         else:
             frappe.throw("The 'issued_article' child table does not exist in the Library Member doctype.")
 
@@ -70,17 +74,18 @@ class LibraryTransaction(Document):
         
         # Check if the 'issued_article' child table exists
         if hasattr(library_member, 'issued_article'):
-            found_article = False
-            # Iterate over the issued articles to find a match
-            for idx, article in enumerate(library_member.issued_article):
-                if article.issued_article == self.article:
-                    # Remove the entry by index
-                    del library_member.issued_article[idx]
-                    found_article = True
-                    break
-            if not found_article:
+            # Search for the issued article entry
+            issued_entry = next((entry for entry in library_member.issued_article if entry.issued_article == self.article), None)
+            
+            if issued_entry:
+                # Remove the entry from the child table
+                library_member.issued_article.remove(issued_entry)
+                library_member.save()
+
+                # Inform the user the article was successfully returned
+                frappe.msgprint(f"The article '{self.article}' has been successfully returned and removed from the member's issued list.")
+            else:
                 frappe.throw(f"The article '{self.article}' was not found in the 'issued_article' child table.")
-            library_member.save()
         else:
             frappe.throw("The 'issued_article' child table does not exist in the Library Member doctype.")
 
@@ -102,63 +107,60 @@ class LibraryTransaction(Document):
         # Check if the issued_date matches the transaction date
         if getattr(self, 'issued_date', None) and self.issued_date != self.date:
             frappe.throw("The issued date does not match the transaction date.")
-            
-# @frappe.whitelist()
-# def get_valid_library_members():
-#     today = datetime.now().date()  # Get today's date
-#     valid_members = frappe.db.get_all(
-#         'Library Membership',  # Ensure the DocType name is correct
-#         filters={
-#             'from_date': ['<=', today],  # Use '<=' to include memberships starting today
-#             'to_date': ['>=', today]     # Use '>=' to include memberships valid today
-            
-#         },
-#         fields=['library_member']
-#     )
-    
-#     # Extract the library_member field from the results
-#     member_names = [member['library_member'] for member in valid_members]
-    
-#     return member_names
 
-@frappe.whitelist()
-# python method signature
-def custom_query(doctype, txt, searchfield, start, page_len, filters):
-    today = frappe.utils.getdate()
-    valid_members = frappe.db.sql(f"""SELECT library_member from `tabLibrary Membership` 
-    WHERE from_date <= {today} 
-    and to_date >= {today} 
-    and library_member like {'%' + txt + '%'}""")
-    print(valid_members)
+    def handle_return(self):
+        # Handling article return
+        doc = frappe.get_doc('Library Member', self.library_member)
+        fine = 0  # Initialize the fine to 0
+
+        # Search for the issued article entry
+        issued_entry = next((entry for entry in doc.issued_article if entry.issued_article == self.article), None)
+
+        if issued_entry:
+            issue_date = getdate(issued_entry.issued_date)  # Convert to date object
+            return_date = getdate(self.date)  # Convert to date object
+
+            # Calculate days between issue date and return date
+            days_diff = (return_date - issue_date).days
+
+            # If return date exceeds 7 days, impose a fine for late return
+            if days_diff > 7:
+                late_days = days_diff - 7
+                fine = late_days * 10  # Apply fine of 10 currency units per day
+
+                # Update the child table with fine details
+                issued_entry.fine_amount = fine
+
+                # Inform the user about the fine
+                frappe.msgprint(f"A fine of {fine} currency units has been imposed for the late return.")
+
+            # After handling fine, clear the issued article from the member's record
+            self.clear_library_member_issue()
+        else:
+            frappe.throw(f"No issued record found for article '{self.article}'.")
+            
+def show_reasons(self):
+    # Fetch the Library Member document
+    library_member_doc = frappe.get_doc('Library Member', self.library_member)
+
+    # Check if the 'reason' child table exists
+    if hasattr(library_member_doc, 'reason'):
+        # Prepare a list of reasons with their details
+        reason_entries = []
+        for entry in library_member_doc.reason:
+            reason_entries.append({
+                "No": entry.idx,
+                "Reason": entry.reason,
+                "Article Name": entry.article_name,
+                "Fine": entry.fine,
+                "Date": entry.date
+            })
         
-    return valid_members
-
-# @frappe.whitelist()
-# def custom_query(doctype, txt, searchfield, start, page_len, filters):
-#     # Set today's date for filtering
-#     today = datetime.now().date()
-    
-#     # Check if the 'date' filter is provided and update 'today' if necessary
-#     if filters and 'date' in filters:
-#         today = filters['date']
-
-#     # Fetch all library members with active memberships on the given date
-#     valid_members = frappe.db.get_list(
-#         'Library Membership',
-#         filters={
-#             'from_date': ['<=', today],
-#             'to_date': ['>=', today]
-#         },
-#         fields=['library_member'],
-#         as_list=True
-#     )
-
-#     # If valid members found, prepare the filtered_list
-#     if valid_members:
-#         filtered_list = [[member[0]] for member in valid_members]
-#     else:
-#         filtered_list = []
-
-#     return filtered_list
-
-
+        # Print the list of reasons
+        if reason_entries:
+            for reason in reason_entries:
+                frappe.msgprint(f"No: {reason['No']}, Reason: {reason['Reason']}, Article Name: {reason['Article Name']}, Fine: {reason['Fine']}, Date: {reason['Date']}")
+        else:
+            frappe.msgprint("No reason entries found for this member.")
+    else:
+        frappe.throw("The 'reason' child table does not exist in the Library Member doctype.")

@@ -12,9 +12,9 @@
   "full_name",
   "email_address",
   "phone",
-  "section_break_zdbj",
   "issued_article",
-  "amended_from"
+  "amended_from",
+  "reason"
  ],
  "fields": [
   {
@@ -45,10 +45,6 @@
    "label": "Phone"
   },
   {
-   "fieldname": "section_break_zdbj",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "issued_article",
    "fieldtype": "Table",
    "label": "Issued Article",
@@ -63,12 +59,18 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Table",
+   "label": "Reason",
+   "options": "Reason"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-02 11:26:32.839052",
+ "modified": "2024-09-09 12:19:06.576184",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Member",

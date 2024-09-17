@@ -7,9 +7,11 @@
  "engine": "InnoDB",
  "field_order": [
   "library_member",
-  "full_name",
   "from_date",
+  "column_break_9xdm",
+  "full_name",
   "to_date",
+  "section_break_r2db",
   "paid",
   "amended_from"
  ],
@@ -27,7 +29,8 @@
    "fieldname": "full_name",
    "fieldtype": "Data",
    "label": "Full Name",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "from_date",
@@ -45,7 +48,16 @@
    "default": "0",
    "fieldname": "paid",
    "fieldtype": "Check",
-   "label": "Paid"
+   "label": "Paid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_9xdm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_r2db",
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "amended_from",
@@ -61,7 +73,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-31 14:51:37.804500",
+ "modified": "2024-09-16 09:49:57.990870",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Membership",
@@ -78,6 +90,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {
@@ -88,8 +101,9 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "libarian",
+   "role": "Librarian",
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

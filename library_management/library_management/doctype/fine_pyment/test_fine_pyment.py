@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestQualification(FrappeTestCase):
+class TestFInePyment(FrappeTestCase):
 	pass

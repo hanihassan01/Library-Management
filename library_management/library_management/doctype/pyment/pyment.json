@@ -6,10 +6,10 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "amended_from",
   "library_member",
   "payment_amount",
-  "methed"
+  "methed",
+  "payment_status"
  ],
  "fields": [
   {
@@ -25,25 +25,21 @@
    "options": "Cash\nCard\nBank"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Pyment",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
    "fieldname": "payment_amount",
    "fieldtype": "Currency",
    "label": "Payment Amount"
+  },
+  {
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "label": "Payment Status",
+   "options": "Unpaid\nPaid"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-04 12:18:29.572304",
+ "modified": "2024-09-12 17:09:00.492066",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Pyment",

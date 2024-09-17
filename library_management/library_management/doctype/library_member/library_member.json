@@ -8,13 +8,15 @@
  "engine": "InnoDB",
  "field_order": [
   "first_name",
-  "last_name",
   "full_name",
-  "email_address",
   "phone",
+  "column_break_oave",
+  "last_name",
+  "email_address",
+  "section_break_ghl0",
   "issued_article",
-  "amended_from",
-  "reason"
+  "reason",
+  "amended_from"
  ],
  "fields": [
   {
@@ -32,7 +34,8 @@
   {
    "fieldname": "full_name",
    "fieldtype": "Data",
-   "label": "Full Name"
+   "label": "Full Name",
+   "read_only": 1
   },
   {
    "fieldname": "email_address",
@@ -51,6 +54,20 @@
    "options": "Issued Article"
   },
   {
+   "fieldname": "reason",
+   "fieldtype": "Table",
+   "label": "Reason",
+   "options": "Reason"
+  },
+  {
+   "fieldname": "column_break_oave",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ghl0",
+   "fieldtype": "Section Break"
+  },
+  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -59,18 +76,12 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
-  },
-  {
-   "fieldname": "reason",
-   "fieldtype": "Table",
-   "label": "Reason",
-   "options": "Reason"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-09 12:19:06.576184",
+ "modified": "2024-09-16 10:03:49.677343",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Member",
@@ -86,6 +97,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Librarian",
    "share": 1,
    "write": 1
   }

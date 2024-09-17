@@ -1,0 +1,137 @@
+{
+ "charts": [
+  {
+   "chart_name": "Member",
+   "label": "Member"
+  },
+  {
+   "chart_name": "Fine",
+   "label": "Fine"
+  }
+ ],
+ "content": "[{\"id\":\"2ptUQpECp2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h3\\\"><i>       <span class=\\\"h2\\\">L</span><span class=\\\"h4\\\">ibrary</span> <span class=\\\"h2\\\">M</span><span class=\\\"h4\\\">ember</span></i></span>\",\"col\":3}},{\"id\":\"HiWpGvLQke\",\"type\":\"spacer\",\"data\":{\"col\":7}},{\"id\":\"zcGvrPtYIJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Library Member\",\"col\":3}},{\"id\":\"2CGliOuH0o\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Library Membership\",\"col\":3}},{\"id\":\"u9s0VnnDI1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Library Transaction\",\"col\":3}},{\"id\":\"qL-AzTS8gT\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Article\",\"col\":3}},{\"id\":\"iql_MwR11K\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"3iJ6x_boId\",\"type\":\"card\",\"data\":{\"card_name\":\"Child Table\",\"col\":3}},{\"id\":\"lt2hsU8om_\",\"type\":\"card\",\"data\":{\"card_name\":\"graph\",\"col\":4}},{\"id\":\"zuuTwUT7S2\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Member\",\"col\":6}},{\"id\":\"EeCikWDzQ4\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Fine\",\"col\":6}},{\"id\":\"8bUUtAH7Eo\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"EOH8mpTjVl\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Library Member\",\"col\":4}},{\"id\":\"7VLVuElaAW\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Library Membership\",\"col\":4}},{\"id\":\"AfEfKbkpos\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pyment\",\"col\":4}}]",
+ "creation": "2024-09-17 10:43:38.524531",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "retail",
+ "idx": 0,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "Home",
+ "links": [
+  {
+   "description": "hi",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Child Table",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Pyment",
+   "link_count": 0,
+   "link_to": "Pyment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "FIne Pyment",
+   "link_count": 0,
+   "link_to": "FIne Pyment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "graph",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "dashboard-view",
+   "link_count": 0,
+   "link_to": "dashboard-view",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2024-09-17 12:07:30.016159",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Home",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Library",
+ "public": 1,
+ "quick_lists": [
+  {
+   "document_type": "Library Member",
+   "label": "Library Member",
+   "quick_list_filter": "[]"
+  },
+  {
+   "document_type": "Library Membership",
+   "label": "Library Membership",
+   "quick_list_filter": "[]"
+  },
+  {
+   "document_type": "Pyment",
+   "label": "Pyment",
+   "quick_list_filter": "[]"
+  }
+ ],
+ "roles": [],
+ "sequence_id": 7.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Library Member",
+   "link_to": "Library Member",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Library Transaction",
+   "link_to": "Library Transaction",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Library Membership",
+   "link_to": "Library Membership",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Article",
+   "link_to": "Article",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Home"
+}

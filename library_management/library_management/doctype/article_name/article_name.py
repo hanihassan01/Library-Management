@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class Qualification(Document):
+class ArticleName(Document):
 	pass

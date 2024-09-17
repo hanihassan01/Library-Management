@@ -1,67 +1,58 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "LT.#####",
- "creation": "2024-08-31 12:59:50.785714",
+ "creation": "2024-09-11 10:09:26.336075",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "section_break_rgsf",
   "library_member",
-  "date",
-  "column_break_z0pi",
-  "article_name",
-  "type",
+  "total_amount",
+  "fine_method",
   "amended_from"
  ],
  "fields": [
   {
    "fieldname": "library_member",
    "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Library Member",
+   "label": "Library member",
    "options": "Library Member"
   },
   {
-   "fieldname": "type",
+   "fieldname": "fine_method",
    "fieldtype": "Select",
-   "label": "Type",
-   "options": "Issue\nReturn"
-  },
-  {
-   "fieldname": "date",
-   "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Date"
+   "label": "Fine Method",
+   "options": "Cash\nCard\nBank"
   },
   {
-   "fieldname": "article_name",
-   "fieldtype": "Table MultiSelect",
-   "label": "Article Name",
-   "options": "Article Name"
-  },
-  {
-   "fieldname": "column_break_z0pi",
-   "fieldtype": "Column Break"
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount"
   },
   {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Library Transaction",
+   "options": "FIne Pyment",
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "section_break_rgsf",
+   "fieldtype": "Section Break",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-17 12:23:04.147728",
+ "modified": "2024-09-17 12:13:13.133696",
  "modified_by": "Administrator",
  "module": "Library Management",
- "name": "Library Transaction",
- "naming_rule": "Expression (old style)",
+ "name": "FIne Pyment",
  "owner": "Administrator",
  "permissions": [
   {
@@ -94,5 +85,6 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

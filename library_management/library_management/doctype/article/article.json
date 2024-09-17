@@ -100,9 +100,8 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "is_published_field": "published",
- "is_submittable": 1,
  "links": [],
- "modified": "2024-09-02 12:39:37.540687",
+ "modified": "2024-09-16 09:51:11.448700",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Article",
@@ -118,6 +117,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Librarian",
    "share": 1,
    "write": 1
   }

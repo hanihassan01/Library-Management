@@ -1,0 +1,29 @@
+{
+ "cards": [],
+ "charts": [
+  {
+   "chart": "Member",
+   "width": "Half"
+  },
+  {
+   "chart": "Payment",
+   "width": "Half"
+  },
+  {
+   "chart": "Fine",
+   "width": "Half"
+  }
+ ],
+ "creation": "2024-09-17 10:00:48.265829",
+ "dashboard_name": "Library Member",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2024-09-17 12:06:34.322557",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Library Member",
+ "owner": "Administrator"
+}

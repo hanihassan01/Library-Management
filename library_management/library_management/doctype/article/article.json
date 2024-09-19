@@ -14,12 +14,11 @@
   "author",
   "section_break_mv1q",
   "description",
-  "isbn",
+  "journal",
   "status",
+  "isbn",
   "publisher",
-  "route",
-  "published",
-  "amended_from"
+  "published"
  ],
  "fields": [
   {
@@ -67,17 +66,13 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Issued\nAvailable"
+   "options": "\nIssued\nAvailable",
+   "reqd": 1
   },
   {
    "fieldname": "publisher",
    "fieldtype": "Data",
    "label": "Publisher"
-  },
-  {
-   "fieldname": "route",
-   "fieldtype": "Data",
-   "label": "Route"
   },
   {
    "default": "0",
@@ -86,22 +81,17 @@
    "label": "Published"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Article",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
+   "fieldname": "journal",
+   "fieldtype": "Select",
+   "label": "Journal",
+   "options": "Motivation\nFantasy\nHorror\nFeelgood\nInvestigation thriller\nThriller\nSuspense\nPsycho thrillers\nSports\nComedy",
+   "reqd": 1
   }
  ],
- "has_web_view": 1,
  "image_field": "image",
- "index_web_pages_for_search": 1,
  "is_published_field": "published",
  "links": [],
- "modified": "2024-09-16 09:51:11.448700",
+ "modified": "2024-09-18 15:47:49.126098",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Article",

@@ -1,0 +1,59 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-18 12:11:24.601259",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_t4bf",
+  "article",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_t4bf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "article",
+   "fieldtype": "Table MultiSelect",
+   "label": "Article",
+   "options": "Article Name"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Show",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-09-18 15:33:35.006930",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Show",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

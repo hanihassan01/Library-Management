@@ -25,7 +25,7 @@
    "fieldname": "type",
    "fieldtype": "Select",
    "label": "Type",
-   "options": "Issue\nReturn"
+   "options": "\nIssue\nReturn"
   },
   {
    "fieldname": "date",
@@ -57,7 +57,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-17 12:23:04.147728",
+ "modified": "2024-09-18 15:49:51.167039",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Transaction",
